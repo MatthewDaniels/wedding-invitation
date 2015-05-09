@@ -1,0 +1,10 @@
+{% extends 'layouts/master.twig' %}
+
+{% block layout %}
+<div class="row">
+	<div class="span12">
+	    {% block content %}{{ content|raw }}{% endblock content %}
+	</div>
+</div>
+{% endblock layout %}
+

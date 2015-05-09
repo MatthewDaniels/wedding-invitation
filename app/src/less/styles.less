@@ -1,0 +1,303 @@
+@import "variables.less";
+@import "vendor/bootstrap/mixins.less";
+@import "app-mixins.less";
+@import "normalize.less";
+@import "icons-and-symbols.less";
+body {
+    background-color: @bg-color;
+    font-family: @font-family-sans-serif;
+    font-size: 30px;
+    line-height: 1;
+    color: white;
+    text-align: center;
+    text-rendering: optimizeLegibility;
+}
+
+.main-container {
+    width: 560px;
+    height: auto;
+    margin: 0 auto;
+    padding: @section-spacing 0;
+    background: @bg-color url(/img/background-tile.png) repeat;
+}
+
+// used for each section in the page
+.section-container {
+    margin: @section-spacing auto;
+    &:first-child {
+        margin-top: 0;
+    }
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+///////////////////////////////////////////////
+// SECTIONS
+///////////////
+///
+///
+.name-text {
+    // Text style for "AMANDA-HAZEL
+    font-family: "Gill Sans Shadowed";
+    font-size: 46.37px;
+    font-weight: 600;
+    line-height: 1.1;
+    .text-uppercase();
+}
+
+.welcome-section {
+    .invitees {
+        font-size: 56px;
+        width: 66.666666667%;
+        margin: 0 auto;
+        word-break: break-word;
+    }
+}
+
+.story-section {
+    span {
+        display: block;
+    }
+    // Text style for "After 104,697"
+    .after-text {
+        font-size: 39px;
+        font-weight: 400;
+        line-height: 39px * @line-height-base;
+    }
+    // Text style for "loving moments"
+    .loving-memories-text {
+        font-size: 57px;
+        font-weight: 700;
+        line-height: 57px;
+        margin-bottom: 14px;
+    }
+    // Text style for "98,465km of tr"
+    .travel-text {
+        font-size: 44px;
+        font-weight: 400;
+        line-height: 52px;
+    }
+    // Text style for "the world toge"
+    .world-text {
+        font-size: 37px;
+        font-weight: 700;
+        line-height: 26px;
+        margin-bottom: 23px;
+    }
+    // Text style for "27 music festivals"
+    .festivals-text {
+        font-size: 44px;
+        font-weight: 700;
+        line-height: 50px;
+    }
+    // Text style for "1 natural disa"
+    .disaster-text {
+        font-size: 49px;
+        font-weight: 700;
+        line-height: 41px;
+    }
+    .and-icon {
+        .square(80px);
+        margin: 18px 0 11px;
+    }
+    // Text style for "2 gorgeous boy"
+    .gorgeous-boys-text {
+        font-size: 53px;
+        font-weight: 700;
+        // line-height: 40px;
+    }
+}
+
+.us-section {
+    span {
+        display: block;
+    }
+    .name-text {
+        margin: 26px 0 0;
+        &.matt-text {
+            margin: 0 0 26px;
+        }
+    }
+    .and-text {
+        // Text style for "and"
+        font-family: @font-family-serif;
+        font-size: 77px;
+        font-weight: 700;
+        margin: 22px auto 40px;
+    }
+}
+
+// Base text style
+.party-section {
+    font-family: Coquette;
+    .decided-text {
+        // Text style for "Have decided t"
+        font-size: 45px;
+        font-weight: 300;
+        line-height: 0.5;
+    }
+    .party-text {
+        // Text style for "have a party"
+        font-size: 76px;
+        font-weight: 700;
+        line-height: 0.8;
+    }
+    .married-text {
+        // Text style for "(and get marri"
+        font-size: 26px;
+        font-weight: 300;
+        line-height: 2;
+    }
+}
+
+.celebrate-section {
+    // Text style for "We take great"
+    font-family: @font-family-sans-serif-alt;
+    font-size: 40px;
+    font-weight: 400;
+    // line-height: 31/37;
+    // Text style for "celebrate."
+    .celebrate-text {
+        font-family: @font-family-sans-serif;
+        font-size: 77px;
+        font-weight: 700;
+        line-height: 63px;
+    }
+}
+
+.date-place-section {
+    .container {
+        margin: 0 auto;
+    }
+    // Base text style
+    line-height: 26px;
+    .half-container {
+        width: 49%;
+        display: inline-block;
+        // float: left;
+        background-position: top center;
+        background-size: 42px;
+        background-color: transparent;
+        background-repeat: no-repeat;
+        > p {
+            margin-top: 85px;
+            padding: 10px 0;
+        }
+    }
+    .date-container {
+        background-image: url(/img/calendar.svg);
+        p {
+            border-right: 2px solid white;
+        }
+    }
+    .place-container {
+        // float: right;
+        background-image: url(/img/location.svg);
+        p {
+            border-left: 2px solid white;
+        }
+    }
+    .saturday-text {
+        // Text style for "SATURDAY"
+        font-size: 35px;
+    }
+    .date-text {
+        // Text style for "5th Sept 2015."
+        font-size: 28px;
+    }
+    .brisbane-text {
+        // Text style for "Brisbane"
+        font-size: 35px;
+    }
+    .city-hall-text {
+        // Text style for "City Hall."
+        font-size: 28px;
+    }
+}
+
+.the-plan-section {
+    // margin-top: 285px;
+    .exchanging-text {
+        // Text style for "Exchanging of"
+        font-family: @font-family-sans-serif-alt;
+        font-size: 38px;
+    }
+    .take-place-text {
+        font-family: @font-family-sans-serif-alt;
+        // Text style for "will take plac"
+        font-size: 40px;
+    }
+    .hamilton-text {
+        // Text style for "Hamilton Loung"
+        font-size: 55px;
+        line-height: 1.25;
+    }
+}
+
+.the-plan-ii-section {
+    // Base text style
+    color: white;
+    font-family: @font-family-serif;
+    font-weight: 400;
+    .immediately-text {
+        // Text style for "Immediately fo"
+        font-size: 42px;
+        line-height: 26px;
+    }
+    .food-drink-text {
+        // Text style for "by food, drink"
+        font-size: 31px;
+        line-height: 25.5px;
+    }
+}
+
+.dress-section {
+    .dress-text {
+        // Text style for "Dress"
+        font-size: 37px;
+        font-weight: 700;
+        line-height: 31px;
+    }
+    .cocktail-text {
+        // Text style for "Cocktail"
+        font-size: 72px;
+        font-weight: 300;
+        line-height: 57px;
+    }
+}
+
+.rsvp-section {
+    margin-top: 80px;
+    .rsvp-text {
+        font-size: 37px;
+        font-weight: 700;
+        line-height: 31px;
+    }
+    .rsvp-date-text {
+        font-size: 42px;
+        font-weight: 300;
+        line-height: 32px;
+    }
+}
+
+.gifts-section {
+    .gifts-text {
+        // Text style for "GIFTS"
+        font-size: 37px;
+        font-weight: 700;
+        line-height: 35.285721px;
+    }
+    .gift-paragraph-text {
+        // Text style for "We have all th"
+        font-family: @font-family-sans-serif-alt;
+        font-size: 26px;
+        line-height: 22px;
+    }
+}
+.save-the-trees-section {
+    margin-top: 90px;
+    font-family: @font-family-sans-serif-alt;
+    font-size: 28px;
+    line-height: 1.1;
+}
