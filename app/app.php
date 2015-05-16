@@ -18,17 +18,17 @@ $app = new \Slim\Slim(array(
 	'templates.path' => '../app/views'
 ));
 
-$app->add(new \Slim\Middleware\SessionCookie(array(
-    'expires' => '20 minutes',
-    'path' => '/',
-    'domain' => null,
-    'secure' => false,
-    'httponly' => false,
-    'name' => 'slim_session',
-    'secret' => 'aEzGo2qxzZ2QZJIIpS1oetusaxAV1E',
-    'cipher' => MCRYPT_RIJNDAEL_256,
-    'cipher_mode' => MCRYPT_MODE_CBC
-)));
+// $app->add(new \Slim\Middleware\SessionCookie(array(
+//     'expires' => '20 minutes',
+//     'path' => '/',
+//     'domain' => null,
+//     'secure' => false,
+//     'httponly' => false,
+//     'name' => 'slim_session',
+//     'secret' => 'aEzGo2qxzZ2QZJIIpS1oetusaxAV1E',
+//     'cipher' => MCRYPT_RIJNDAEL_256,
+//     'cipher_mode' => MCRYPT_MODE_CBC
+// )));
 
 //Loads all needed subfiles
 require 'bootstrap.php';

@@ -4,28 +4,41 @@ use RedBean_Facade as R;
 
 $userNames = 'It\'s time for a Marry Party!';
 
-$app->get('/', function() use ($app, $userNames) {
-    $app->view()->appendData(array('names'=>$userNames));
-	$app->render('index.twig');
-})->name('Home');
 
+// $app->get('/peeps', function () use ($app) {
+//     $peeps = R::load( 'peeps' );
+
+//     // set the return headers
+//     $app->response->headers->set('Content-Type', 'application/json');
+
+//     echo json_encode( $peeps );
+// });
+
+/**
+ * ID based - grab a single
+ */
 $app->get('/:id', function ($id) use ($app, $userNames) {
     //Show user identified by $id
     //
 
-    // get the user record from the DB, based on the $id passed in
-    //
-    // grab the userna`mes and parse them
-    // $userNames = $id;
+    if($id === 'peeps') {
+        $peeps = R::findAll( 'peeps' );
 
-    // $peep = R::load( 'peeps', 5 ); //reloads our book
+        // set the return headers
+        $app->response->headers->set('Content-Type', 'application/json');
+var_dump($peeps);
+die();
 
-    $peep = R::findOne( 'peeps', ' hashed_id = ? ', [$id] );
+        echo json_encode( $peeps );
+    } else {
+        $peep = R::findOne( 'peeps', ' hashed_id = ? ', [$id] );
 
-    $peep && $userNames = $peep->names;
+        $peep && $userNames = $peep->names;
 
-    $app->view()->appendData(array('names'=>$userNames));
-    $app->render('index.twig');
+        $app->view()->appendData(array('names'=>$userNames));
+        $app->render('index.twig');
+    }
+
 });
 
 
@@ -68,3 +81,12 @@ $app->post('/:peep', function() use ($app) {
     // exit time
     // exit();
 });
+
+
+/**
+ * DEfault Route
+ */
+$app->get('/', function() use ($app, $userNames) {
+    $app->view()->appendData(array('names'=>$userNames));
+    $app->render('index.twig');
+})->name('Home');
