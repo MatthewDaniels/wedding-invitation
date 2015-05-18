@@ -26,10 +26,10 @@ $app->get('/:id', function ($id) use ($app, $userNames) {
 
         // set the return headers
         $app->response->headers->set('Content-Type', 'application/json');
-var_dump($peeps);
-die();
+// var_dump(json_encode($peeps));
+// die();
 
-        echo json_encode( $peeps );
+        echo json_encode( R::exportAll($peeps) );
     } else {
         $peep = R::findOne( 'peeps', ' hashed_id = ? ', [$id] );
 
@@ -41,16 +41,27 @@ die();
 
 });
 
+/**
+ * Updates an existing entry
+ */
+
+
 
 /**
  * Create a new entry
  */
 $app->post('/:peep', function() use ($app) {
 
-    $body = json_decode($app->request->getBody());
+    $body = $app->request->getBody();
 
     // update DB here
     $peep_db = R::dispense( 'peeps' );
+
+
+    // set the return headers
+    $app->response->headers->set('Content-Type', 'application/json');
+var_dump($body);
+die();
 
     $peep_db->email = $body->email;
     $peep_db->names = $body->names;
@@ -69,9 +80,6 @@ $app->post('/:peep', function() use ($app) {
         // fail
         $success = array('success' => 0, 'message' => 'Uh oh, something went wrong ' . var_dump($peep_db) );
     }
-
-    // set the return headers
-    $app->response->headers->set('Content-Type', 'application/json');
 
 
     // return the success param as JSON

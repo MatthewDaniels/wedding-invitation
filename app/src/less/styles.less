@@ -3,6 +3,8 @@
 @import "app-mixins.less";
 @import "normalize.less";
 @import "icons-and-symbols.less";
+@import "icons.fallback.less";
+
 body {
     background-color: @bg-color;
     font-family: @font-family-sans-serif;
@@ -32,6 +34,23 @@ body {
     }
 }
 
+a {
+    text-decoration: none;
+    outline: 0 transparent;
+    color: white;
+
+    span.underlined {
+        border-bottom: 1px dashed white;
+        transition: all 0.25s @quad-ease-out;
+    }
+    &:hover {
+        span.underlined {
+            border-bottom: 1px dotted white;
+            padding-bottom: 6px;
+        }
+    }
+}
+
 ///////////////////////////////////////////////
 // SECTIONS
 ///////////////
@@ -39,10 +58,23 @@ body {
 ///
 .name-text {
     // Text style for "AMANDA-HAZEL
-    font-family: "Gill Sans Shadowed";
+    // font-family: "Gill Sans", "forgotten-futurist-shadow";
+    font-family: @font-family-sans-serif;
     font-size: 46.37px;
     font-weight: 600;
     line-height: 1.1;
+    text-transform: uppercase;
+    &.supershadow {
+        transition: text-shadow 0.75s @quad-ease-out;
+        text-shadow: -10px 10px 0px lighten(#485e65, 20%), -20px 20px 0px lighten(#485e65, 10%), -30px 30px 0px #485e65;
+    }
+    .superscript {
+        display: inline;
+        text-transform: lowercase;
+        vertical-align: baseline;
+        top: -0.19em;
+        position: relative;
+    }
 }
 
 .welcome-section {
@@ -208,6 +240,7 @@ body {
     .brisbane-text {
         // Text style for "Brisbane"
         font-size: 35px;
+        border-bottom: none;
     }
     .city-hall-text {
         // Text style for "City Hall."
@@ -260,10 +293,20 @@ body {
     }
     .cocktail-text {
         // Text style for "Cocktail"
-        font-size: 72px;
+        font-size: 45px;
         font-weight: 300;
-        line-height: 57px;
+        line-height: 38px;
     }
+}
+
+.sub-text {
+    font-family: Coquette;
+    display: block;
+    padding-top: 16px;
+    // Text style for "(and get marri"
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 2;
 }
 
 .rsvp-section {
@@ -294,9 +337,23 @@ body {
         line-height: 22px;
     }
 }
+
 .save-the-trees-section {
     margin-top: 90px;
     font-family: @font-family-sans-serif-alt;
     font-size: 28px;
     line-height: 1.1;
+}
+
+
+
+html.no-svg {
+    .date-container {
+        background-image: url('/img/png/calendar.png');
+        background-repeat: no-repeat;
+    }
+    .place-container {
+        background-image: url('/img/png/location.png');
+        background-repeat: no-repeat;
+    }
 }
