@@ -1,7 +1,4 @@
 tmp
-public/js
-public/dev
-public/css
 bower_modules
 node_modules
 composer_modules

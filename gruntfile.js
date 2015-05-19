@@ -45,10 +45,10 @@ module.exports = function(grunt) {
       },
       dist: {
         files: [
-          {src: ['public/.htaccess'], dest: 'dist/', filter: 'isFile'},
-          {src: ['public/**'], dest: 'dist/'},
-          {src: ['app/**'], dest: 'dist/'},
-          {src: ['composer_modules/**'], dest: 'dist/'},
+          {src: ['public/.htaccess'], dest: '/', filter: 'isFile'},
+          {src: ['public/**'], dest: '/'},
+          {src: ['app/**'], dest: '/'},
+          {src: ['composer_modules/**'], dest: '/'},
         ]
       }
     },
@@ -109,7 +109,7 @@ module.exports = function(grunt) {
       },
       dist: {
         options: {
-          create: ['dist/tmp','dist/tmp/logs','dist/tmp/cache']
+          create: ['tmp','tmp/logs','tmp/cache']
         }
       }
     },
