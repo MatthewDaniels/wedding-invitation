@@ -1,0 +1,33 @@
+{# title Add Peeps #}
+
+{% extends 'layouts/one_column.twig' %}
+
+{% block inline %}
+
+{% endblock inline %}
+
+{% block content %}
+
+<div class="main-container">
+<form action="/update-peeps" method="post">
+
+    <input type="text" name="names" placeholder="Peep's names" value="{{ peep.names }}" />
+    <input type="email" name="emails" placeholder="Peep's emails" value="{{ peep.emails }}" />
+
+    {% if peep %}
+
+    <input type="hidden" name="id" value="{{ peep.id }}"/>
+    <input type="hidden" name="hashed_id" value="{{ peep.hashed_id }}"/>
+
+    <input type="submit" value="Update Peep"/>
+
+    {% else %}
+
+    <input type="submit" value="Add Peep"/>
+
+    {% endif %}
+</form>
+
+</div>
+
+{% endblock content %}
